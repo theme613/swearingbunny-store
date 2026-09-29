@@ -5,3 +5,4 @@ data/inquiries.jsonl
 *.tmp
 *.bak
 .DS_Store
+gh.exe

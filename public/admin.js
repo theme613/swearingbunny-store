@@ -10,8 +10,102 @@ let sessionToken = "";
 const form = document.getElementById("productForm");
 const field = name => form.elements.namedItem(name);
 
+const imagePreviewImg = document.getElementById("imagePreviewImg");
+const imagePreviewPlaceholder = document.getElementById("imagePreviewPlaceholder");
+const imageFileInput = document.getElementById("imageFileInput");
+const btnUploadImage = document.getElementById("btnUploadImage");
+const btnClearImage = document.getElementById("btnClearImage");
+const assetPickerSelect = document.getElementById("assetPickerSelect");
+const imageUploadStatus = document.getElementById("imageUploadStatus");
+
 function escapeHtml(value) {
   return String(value ?? "").replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+}
+
+function updateImagePreview(url) {
+  const clean = (url || "").trim();
+  if (clean) {
+    if (imagePreviewImg) {
+      imagePreviewImg.src = clean;
+      imagePreviewImg.style.display = "block";
+      imagePreviewImg.onerror = () => {
+        imagePreviewImg.style.display = "none";
+        if (imagePreviewPlaceholder) {
+          imagePreviewPlaceholder.style.display = "flex";
+          imagePreviewPlaceholder.innerHTML = '<i class="fa-solid fa-triangle-exclamation" style="color:var(--danger)"></i><span>Image not found</span>';
+        }
+      };
+      imagePreviewImg.onload = () => {
+        if (imagePreviewPlaceholder) imagePreviewPlaceholder.style.display = "none";
+      };
+    }
+    if (imagePreviewPlaceholder) imagePreviewPlaceholder.style.display = "none";
+  } else {
+    if (imagePreviewImg) {
+      imagePreviewImg.src = "";
+      imagePreviewImg.style.display = "none";
+    }
+    if (imagePreviewPlaceholder) {
+      imagePreviewPlaceholder.style.display = "flex";
+      imagePreviewPlaceholder.innerHTML = '<i class="fa-solid fa-image"></i><span>No image</span>';
+    }
+  }
+}
+
+function setImageUploadStatus(msg, type = "") {
+  if (!imageUploadStatus) return;
+  if (!msg) {
+    imageUploadStatus.style.display = "none";
+    imageUploadStatus.textContent = "";
+    return;
+  }
+  imageUploadStatus.textContent = msg;
+  imageUploadStatus.className = "image-upload-status" + (type ? " " + type : "");
+  imageUploadStatus.style.display = "inline-flex";
+}
+
+let availableAssets = [];
+
+async function loadAssetsList() {
+  if (!assetPickerSelect) return;
+  try {
+    const headers = {};
+    if (sessionToken) headers["X-Admin-Token"] = sessionToken;
+    const res = await fetch("/api/admin/assets", { cache: "no-store", headers });
+    if (!res.ok) return;
+    const data = await res.json();
+    availableAssets = data.assets || [];
+    
+    const nameMap = {
+      "assets/genshin.webp": "Genshin Impact (Key Art)",
+      "assets/hsr.webp": "Honkai: Star Rail (Key Art)",
+      "assets/zzz.webp": "Zenless Zone Zero (Key Art)",
+      "assets/valorant.png": "Valorant (Agent Art)",
+      "assets/gta.jpg": "Grand Theft Auto V (Hero Art)",
+      "assets/nte.png": "Neverness to Everness (Key Art)",
+      "assets/cookierun.jpg": "Cookie Run: Kingdom (Banner Art)",
+      "assets/gamepad.jpg": "Any Game (Controller Banner)",
+      "assets/aigirlfriend.jpg": "Local AI Companion (Anime Art)",
+      "assets/carplay.jpg": "Android CarPlay (Dashboard Art)",
+      "assets/apex.jpg": "Apex Legends",
+      "assets/league.jpg": "League of Legends",
+      "assets/counterstrike.jpg": "Counter-Strike",
+      "assets/omen.png": "Gaming Setup (Omen)"
+    };
+
+    const currentValue = field("image") ? field("image").value.trim() : "";
+    let optionsHtml = '<option value="">-- Choose game art --</option>';
+    
+    availableAssets.forEach(path => {
+      const label = nameMap[path] || path.replace(/^assets\/(uploads\/)?/, "");
+      optionsHtml += `<option value="${escapeHtml(path)}">${escapeHtml(label)}</option>`;
+    });
+
+    assetPickerSelect.innerHTML = optionsHtml;
+    if (currentValue) assetPickerSelect.value = currentValue;
+  } catch (err) {
+    console.warn("Could not load assets:", err);
+  }
 }
 
 function status(message, kind = "") {
@@ -60,6 +154,11 @@ function selectProduct(id) {
   field("active").checked = draft.active !== false;
   document.getElementById("productId").value = draft.id || "Assigned when saved";
   document.getElementById("deleteProduct").hidden = isNew;
+  updateImagePreview(draft.image || "");
+  if (assetPickerSelect) {
+    assetPickerSelect.value = draft.image || "";
+  }
+  setImageUploadStatus("");
   const index = products.findIndex(item => item.id === id);
   document.getElementById("moveUp").disabled = isNew || index <= 0;
   document.getElementById("moveDown").disabled = isNew || index === products.length - 1;
@@ -182,6 +281,101 @@ document.getElementById("moveDown").addEventListener("click", () => moveProduct(
 window.addEventListener("beforeunload", event => {
   if (dirty || saving) { event.preventDefault(); event.returnValue = ""; }
 });
+
+// Image Manager & Upload Listeners
+if (field("image")) {
+  field("image").addEventListener("input", () => {
+    const val = field("image").value.trim();
+    updateImagePreview(val);
+    if (assetPickerSelect) assetPickerSelect.value = val;
+  });
+}
+
+if (assetPickerSelect) {
+  assetPickerSelect.addEventListener("change", () => {
+    const val = assetPickerSelect.value;
+    if (field("image")) {
+      field("image").value = val;
+      updateImagePreview(val);
+      setDirty(true);
+    }
+  });
+}
+
+if (btnUploadImage && imageFileInput) {
+  btnUploadImage.addEventListener("click", () => {
+    imageFileInput.value = "";
+    imageFileInput.click();
+  });
+
+  imageFileInput.addEventListener("change", async () => {
+    const file = imageFileInput.files?.[0];
+    if (!file) return;
+
+    if (!file.type.startsWith("image/")) {
+      setImageUploadStatus("Please choose an image file (PNG, JPG, WEBP, GIF, SVG).", "error");
+      return;
+    }
+
+    if (file.size > 15 * 1024 * 1024) {
+      setImageUploadStatus("File is too large. Maximum size is 15MB.", "error");
+      return;
+    }
+
+    const originalBtnHtml = btnUploadImage.innerHTML;
+    btnUploadImage.disabled = true;
+    btnUploadImage.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Uploading…';
+    setImageUploadStatus("Reading and uploading image…", "loading");
+
+    try {
+      const reader = new FileReader();
+      const dataUrl = await new Promise((resolve, reject) => {
+        reader.onload = () => resolve(reader.result);
+        reader.onerror = () => reject(new Error("Failed to read image file."));
+        reader.readAsDataURL(file);
+      });
+
+      const headers = { "Content-Type": "application/json" };
+      if (sessionToken) headers["X-Admin-Token"] = sessionToken;
+
+      const res = await fetch("/api/admin/upload-image", {
+        method: "POST",
+        headers,
+        body: JSON.stringify({ filename: file.name, data: dataUrl })
+      });
+
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.error || "Failed to upload image.");
+
+      if (field("image")) {
+        field("image").value = data.url;
+        updateImagePreview(data.url);
+        setDirty(true);
+      }
+
+      setImageUploadStatus("Image uploaded successfully!", "success");
+      await loadAssetsList();
+      if (assetPickerSelect) assetPickerSelect.value = data.url;
+    } catch (err) {
+      setImageUploadStatus(err.message, "error");
+    } finally {
+      btnUploadImage.disabled = false;
+      btnUploadImage.innerHTML = originalBtnHtml;
+    }
+  });
+}
+
+if (btnClearImage) {
+  btnClearImage.addEventListener("click", () => {
+    if (field("image")) {
+      field("image").value = "";
+      updateImagePreview("");
+      if (assetPickerSelect) assetPickerSelect.value = "";
+      setDirty(true);
+      setImageUploadStatus("");
+    }
+  });
+}
 
 // ==============================================================================
 // AUTHENTICATION & LOGIN LOGIC
@@ -309,6 +503,7 @@ async function loadManager() {
     } catch { /* Default currency remains available. */ }
 
     document.getElementById("addProduct").disabled = false;
+    await loadAssetsList();
     renderList();
     if (products.length) selectProduct(products[0].id);
     status("Ready to edit. Select a product or add a new one.");

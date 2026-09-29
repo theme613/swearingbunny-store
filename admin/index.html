@@ -89,7 +89,43 @@
             <label class="field">Price note <span class="field-hint">Shown under the price</span><input id="productBilling" name="billing" maxlength="160" placeholder="e.g. per day or one-time setup"></label>
             <label class="field full">Description<textarea id="productDescription" name="description" rows="4" maxlength="2400" required placeholder="Explain what your customer gets."></textarea></label>
             <label class="field full">Included features <span class="field-hint">One feature per line, up to 15</span><textarea id="productFeatures" name="features" rows="5" placeholder="Daily missions and reward claims&#10;Resource farming help"></textarea></label>
-            <label class="field full">Product image <span class="field-hint">Use an assets/ path or an HTTPS image link. Leave blank for an icon.</span><input id="productImage" name="image" maxlength="1500" placeholder="assets/valorant.png"></label>
+            <div class="field full image-manager-field">
+              <div class="image-field-header">
+                <span>Product image</span>
+                <span class="field-hint">Upload a picture, pick an existing game asset, or enter a link</span>
+              </div>
+              <div class="image-manager-box">
+                <div class="image-preview-card" id="imagePreviewCard">
+                  <img id="imagePreviewImg" src="" alt="Product preview" style="display:none;">
+                  <div id="imagePreviewPlaceholder" class="image-preview-placeholder">
+                    <i class="fa-solid fa-image" aria-hidden="true"></i>
+                    <span>No image</span>
+                  </div>
+                </div>
+                <div class="image-controls-wrap">
+                  <div class="image-upload-row">
+                    <input type="file" id="imageFileInput" accept="image/png,image/jpeg,image/webp,image/gif,image/svg+xml" style="display:none;">
+                    <button type="button" id="btnUploadImage" class="button button-lime upload-btn">
+                      <i class="fa-solid fa-cloud-arrow-up"></i> Upload picture
+                    </button>
+                    <button type="button" id="btnClearImage" class="button button-outline" title="Clear image">
+                      <i class="fa-solid fa-xmark"></i> Clear
+                    </button>
+                  </div>
+                  <div class="image-picker-row">
+                    <label class="subfield-label" for="assetPickerSelect">Or select from existing game assets:</label>
+                    <select id="assetPickerSelect">
+                      <option value="">-- Choose game art --</option>
+                    </select>
+                  </div>
+                  <div class="image-path-row">
+                    <label class="subfield-label" for="productImage">Direct file path or HTTPS URL:</label>
+                    <input id="productImage" name="image" maxlength="1500" placeholder="assets/genshin.webp">
+                  </div>
+                  <div id="imageUploadStatus" class="image-upload-status" style="display:none;"></div>
+                </div>
+              </div>
+            </div>
           </div>
           <details class="advanced-fields"><summary>More options</summary><div class="form-grid">
             <label class="field">Fallback icon <span class="field-hint">Font Awesome name</span><input id="productIcon" name="icon" pattern="fa-[a-z0-9-]+" maxlength="80" placeholder="fa-gamepad"></label>

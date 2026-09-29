@@ -5,6 +5,7 @@
     "badge": "DAILY HELP",
     "name": "Genshin Daily Help",
     "subtitle": "Genshin Impact Daily Tasks",
+    "image": "assets/genshin.webp",
     "icon": "fa-wand-magic-sparkles",
     "description": "Keep up with Genshin Impact when your schedule gets busy. Get help with daily commissions, resin use, and the routine tasks you choose.",
     "features": [
@@ -23,6 +24,7 @@
     "badge": "DAILY HELP",
     "name": "Honkai Star Rail Daily Help",
     "subtitle": "Daily Training & Trailblaze Power",
+    "image": "assets/hsr.webp",
     "icon": "fa-star",
     "description": "Stay on top of your Honkai: Star Rail routine with help for daily training, Trailblaze Power use, and resource collection.",
     "features": [
@@ -60,6 +62,7 @@
     "badge": "DAILY HELP",
     "name": "Zenless Zone Zero Daily Help",
     "subtitle": "Daily Errands & Battery Charge",
+    "image": "assets/zzz.webp",
     "icon": "fa-bolt",
     "description": "Get help with your Zenless Zone Zero daily routine, from errands and reward claims to Battery Charge use and materials.",
     "features": [
@@ -78,6 +81,7 @@
     "badge": "SINGLE PLAYER",
     "name": "GTA Single Player Mod",
     "subtitle": "Mod Installation & Setup",
+    "image": "assets/gta.jpg",
     "icon": "fa-car",
     "description": "Customize your GTA single-player experience with help installing and configuring mods. Share your game version and the mods you want to use.",
     "features": [
@@ -96,6 +100,7 @@
     "badge": "DAILY HELP",
     "name": "NTE Daily Help",
     "subtitle": "Daily Tasks & Routine Progress",
+    "image": "assets/nte.png",
     "icon": "fa-city",
     "description": "Keep your NTE routine moving with help for daily tasks, reward collection, and resource activities. Send your task list to confirm the scope.",
     "features": [
@@ -114,6 +119,7 @@
     "badge": "DAILY HELP",
     "name": "Cookie Kingdom Daily Help",
     "subtitle": "Cookie Run: Kingdom Daily Routine",
+    "image": "assets/cookierun.jpg",
     "icon": "fa-cookie-bite",
     "description": "Get help with your Cookie Run: Kingdom daily routine, including missions, kingdom resources, and reward collection.",
     "features": [
@@ -132,6 +138,7 @@
     "badge": "YOUR GAME",
     "name": "Any Game Daily Help",
     "subtitle": "Tell Us Your Game & Daily Tasks",
+    "image": "assets/gamepad.jpg",
     "icon": "fa-gamepad",
     "description": "Need daily help with another game? Send the game name, platform, and tasks you want covered so we can confirm availability and a quote.",
     "features": [
@@ -150,6 +157,7 @@
     "badge": "OFFLINE AI",
     "name": "Local AI Girlfriend Setup (No Wi-Fi Needed)",
     "subtitle": "An AI Companion That Runs Locally",
+    "image": "assets/aigirlfriend.jpg",
     "icon": "fa-heart",
     "description": "Set up a local AI girlfriend on a compatible computer for offline conversations. Once the software and model are installed, chatting does not need Wi-Fi or an internet connection.",
     "features": [
@@ -168,6 +176,7 @@
     "badge": "CARPLAY SETUP",
     "name": "Android Device CarPlay for iPhone",
     "subtitle": "iPhone Connectivity for Compatible Android Devices",
+    "image": "assets/carplay.jpg",
     "icon": "fa-mobile-screen-button",
     "description": "Set up a compatible Android car head unit or device to work with your iPhone through CarPlay. Device and adapter support are checked before booking.",
     "features": [
