@@ -1,0 +1,28 @@
+services:
+  - type: web
+    name: swearingbunny-store
+    env: node
+    plan: free
+    region: singapore # Closest to Malaysia/Asia Pacific for fastest ping
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: NODE_VERSION
+        value: 20
+      - key: PORT
+        value: 10000
+      - key: BRAND_NAME
+        value: swearingbunny
+      - key: BRAND_BADGE
+        value: LESS GRIND. MORE GLORY.
+      - key: BRAND_TAGLINE
+        value: Your game. Your goals. Next level.
+      - key: WHATSAPP_NUMBER
+        value: "601154309279"
+      - key: INSTAGRAM_USERNAME
+        value: swearingbunny
+      - key: CURRENCY
+        value: "$"
+      - key: ADMIN_PASSWORD
+        generateValue: false
+        sync: false
