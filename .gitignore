@@ -1,0 +1,7 @@
+node_modules/
+cloudflared.exe
+.env
+data/inquiries.jsonl
+*.tmp
+*.bak
+.DS_Store

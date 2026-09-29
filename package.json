@@ -1,0 +1,37 @@
+{
+  "name": "swaeringbunny-store",
+  "version": "1.0.0",
+  "description": "swaeringbunny daily game help, gaming services, offline AI companion setup, and Android CarPlay storefront.",
+  "main": "server.mjs",
+  "type": "module",
+  "scripts": {
+    "start": "node server.mjs",
+    "dev": "node --watch server.mjs"
+  },
+  "keywords": [
+    "gaming-services",
+    "swaeringbunny",
+    "daily-help",
+    "genshin",
+    "honkai-star-rail",
+    "valorant",
+    "zenless-zone-zero",
+    "gta",
+    "nte",
+    "cookie-kingdom",
+    "offline-ai",
+    "carplay",
+    "nodejs",
+    "express"
+  ],
+  "author": "swaeringbunny",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  }
+}

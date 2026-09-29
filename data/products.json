@@ -1,0 +1,183 @@
+[
+  {
+    "id": "srv-genshin-daily",
+    "category": "service",
+    "badge": "DAILY HELP",
+    "name": "Genshin Daily Help",
+    "subtitle": "Genshin Impact Daily Tasks",
+    "icon": "fa-wand-magic-sparkles",
+    "description": "Keep up with Genshin Impact when your schedule gets busy. Get help with daily commissions, resin use, and the routine tasks you choose.",
+    "features": [
+      "Daily commissions and reward claims",
+      "Resin and resource farming help",
+      "Event tasks agreed before booking",
+      "Schedule and task list tailored to you"
+    ],
+    "price": null,
+    "billing": "price confirmed before booking",
+    "active": true
+  },
+  {
+    "id": "srv-honkai-star-rail-daily",
+    "category": "service",
+    "badge": "DAILY HELP",
+    "name": "Honkai Star Rail Daily Help",
+    "subtitle": "Daily Training & Trailblaze Power",
+    "icon": "fa-star",
+    "description": "Stay on top of your Honkai: Star Rail routine with help for daily training, Trailblaze Power use, and resource collection.",
+    "features": [
+      "Daily training and reward claims",
+      "Trailblaze Power and material farming",
+      "Event tasks agreed before booking",
+      "Plan your daily or recurring help"
+    ],
+    "price": null,
+    "billing": "price confirmed before booking",
+    "active": true
+  },
+  {
+    "id": "srv-valorant-boost",
+    "category": "service",
+    "badge": "RANK BOOSTING",
+    "name": "Valorant Rank Boosting Service",
+    "subtitle": "Your Current Rank. Your Next Goal.",
+    "image": "assets/valorant.png",
+    "icon": "fa-crosshairs",
+    "description": "Request a Valorant rank boosting service based on your current rank, target rank, and server. Contact us to discuss availability, options, and pricing.",
+    "features": [
+      "Quote based on current and target rank",
+      "Server and region confirmed before booking",
+      "Discuss queue options and availability",
+      "Agree on the schedule before starting"
+    ],
+    "price": null,
+    "billing": "price confirmed before booking",
+    "active": true
+  },
+  {
+    "id": "srv-zenless-zone-zero-daily",
+    "category": "service",
+    "badge": "DAILY HELP",
+    "name": "Zenless Zone Zero Daily Help",
+    "subtitle": "Daily Errands & Battery Charge",
+    "icon": "fa-bolt",
+    "description": "Get help with your Zenless Zone Zero daily routine, from errands and reward claims to Battery Charge use and materials.",
+    "features": [
+      "Daily errands and reward collection",
+      "Battery Charge and material farming",
+      "Event tasks agreed before booking",
+      "Choose the routine you need help with"
+    ],
+    "price": null,
+    "billing": "price confirmed before booking",
+    "active": true
+  },
+  {
+    "id": "srv-gta-single-player-mod",
+    "category": "service",
+    "badge": "SINGLE PLAYER",
+    "name": "GTA Single Player Mod",
+    "subtitle": "Mod Installation & Setup",
+    "icon": "fa-car",
+    "description": "Customize your GTA single-player experience with help installing and configuring mods. Share your game version and the mods you want to use.",
+    "features": [
+      "Game version and mod compatibility check",
+      "Single-player mod installation and configuration",
+      "Backup and restore guidance",
+      "Setup walkthrough for your chosen mods"
+    ],
+    "price": null,
+    "billing": "price confirmed before booking",
+    "active": true
+  },
+  {
+    "id": "srv-nte-daily",
+    "category": "service",
+    "badge": "DAILY HELP",
+    "name": "NTE Daily Help",
+    "subtitle": "Daily Tasks & Routine Progress",
+    "icon": "fa-city",
+    "description": "Keep your NTE routine moving with help for daily tasks, reward collection, and resource activities. Send your task list to confirm the scope.",
+    "features": [
+      "Daily task and reward collection help",
+      "Resource activities based on your goals",
+      "Event help subject to availability",
+      "Flexible task list and schedule"
+    ],
+    "price": null,
+    "billing": "price confirmed before booking",
+    "active": true
+  },
+  {
+    "id": "srv-cookie-kingdom-daily",
+    "category": "service",
+    "badge": "DAILY HELP",
+    "name": "Cookie Kingdom Daily Help",
+    "subtitle": "Cookie Run: Kingdom Daily Routine",
+    "icon": "fa-cookie-bite",
+    "description": "Get help with your Cookie Run: Kingdom daily routine, including missions, kingdom resources, and reward collection.",
+    "features": [
+      "Daily missions and reward claims",
+      "Kingdom production and resource collection",
+      "Event tasks agreed before booking",
+      "Routine planned around your kingdom"
+    ],
+    "price": null,
+    "billing": "price confirmed before booking",
+    "active": true
+  },
+  {
+    "id": "srv-any-game-daily",
+    "category": "service",
+    "badge": "YOUR GAME",
+    "name": "Any Game Daily Help",
+    "subtitle": "Tell Us Your Game & Daily Tasks",
+    "icon": "fa-gamepad",
+    "description": "Need daily help with another game? Send the game name, platform, and tasks you want covered so we can confirm availability and a quote.",
+    "features": [
+      "Request help for any game",
+      "Game and platform support checked first",
+      "Custom daily task list",
+      "One-off or recurring schedule to discuss"
+    ],
+    "price": null,
+    "billing": "price confirmed before booking",
+    "active": true
+  },
+  {
+    "id": "app-local-ai-girlfriend",
+    "category": "app",
+    "badge": "OFFLINE AI",
+    "name": "Local AI Girlfriend Setup (No Wi-Fi Needed)",
+    "subtitle": "An AI Companion That Runs Locally",
+    "icon": "fa-heart",
+    "description": "Set up a local AI girlfriend on a compatible computer for offline conversations. Once the software and model are installed, chatting does not need Wi-Fi or an internet connection.",
+    "features": [
+      "Computer compatibility and model selection",
+      "Local installation and character setup",
+      "Offline chat after the initial downloads",
+      "Walkthrough for starting and using your companion"
+    ],
+    "price": null,
+    "billing": "price confirmed before booking",
+    "active": true
+  },
+  {
+    "id": "app-android-carplay-iphone",
+    "category": "app",
+    "badge": "CARPLAY SETUP",
+    "name": "Android Device CarPlay for iPhone",
+    "subtitle": "iPhone Connectivity for Compatible Android Devices",
+    "icon": "fa-mobile-screen-button",
+    "description": "Set up a compatible Android car head unit or device to work with your iPhone through CarPlay. Device and adapter support are checked before booking.",
+    "features": [
+      "Android device and iPhone compatibility check",
+      "Required software or adapter confirmed first",
+      "CarPlay connection and pairing setup",
+      "Connection testing and usage walkthrough"
+    ],
+    "price": null,
+    "billing": "price confirmed before booking",
+    "active": true
+  }
+]
