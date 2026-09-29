@@ -13,9 +13,9 @@ const __dirname = dirname(__filename);
 
 const app = express();
 const PORT = process.env.PORT || 3000;
-const HOST = process.env.HOST || '127.0.0.1';
+const HOST = process.env.HOST || '0.0.0.0';
 const DATA_DIR = resolve(__dirname, process.env.DATA_DIR || 'data');
-const BRAND_NAME = process.env.BRAND_NAME || 'swaeringbunny';
+const BRAND_NAME = process.env.BRAND_NAME || 'swearingbunny';
 const productStore = createProductStore(resolve(__dirname, process.env.PRODUCTS_FILE || 'data/products.json'));
 await productStore.read();
 const asyncRoute = handler => (req, res, next) => Promise.resolve(handler(req, res, next)).catch(next);

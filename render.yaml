@@ -11,6 +11,8 @@ services:
         value: 20
       - key: PORT
         value: 10000
+      - key: HOST
+        value: 0.0.0.0
       - key: BRAND_NAME
         value: swearingbunny
       - key: BRAND_BADGE
