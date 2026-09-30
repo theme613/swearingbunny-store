@@ -50,7 +50,7 @@ async function getCatalogue() {
 
 const FAQS = [
   {
-    "q": "How do I place an order with swaeringbunny?",
+    "q": "How do I place an order with swearingbunny?",
     "a": "Choose a service and click Order WA or DM Insta. Send your game, task list, or device details so we can confirm availability, the scope, and a quote before you book."
   },
   {

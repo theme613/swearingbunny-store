@@ -1,6 +1,6 @@
-# swaeringbunny — Node.js & Express Gaming Storefront 🎮⚡
+# swearingbunny — Node.js & Express Gaming Storefront 🎮⚡
 
-Full-stack Node.js application for **swaeringbunny** showcasing daily game help, Valorant rank boosting, GTA single-player mods, offline AI girlfriend setup, and Android CarPlay for iPhone with automated redirection to **WhatsApp** and **Instagram**.
+Full-stack Node.js application for **swearingbunny** showcasing daily game help, Valorant rank boosting, GTA single-player mods, offline AI girlfriend setup, and Android CarPlay for iPhone with automated redirection to **WhatsApp** and **Instagram**.
 
 ---
 
@@ -35,7 +35,7 @@ PORT=3000
 HOST=127.0.0.1
 
 # Brand Details
-BRAND_NAME=swaeringbunny
+BRAND_NAME=swearingbunny
 BRAND_BADGE=LESS GRIND. MORE GLORY.
 BRAND_TAGLINE=Your game. Your goals. Next level.
 
@@ -95,4 +95,4 @@ The **Light mode / Dark mode** button switches the entire store and manager, and
 9. Local AI Girlfriend Setup (No Wi-Fi Needed)
 10. Android Device CarPlay for iPhone
 
-Prices are confirmed by quote. The API returns `price: null` until a price is configured. The storefront name is `swaeringbunny`; the Instagram contact remains configurable with `INSTAGRAM_USERNAME`.
+Prices are confirmed by quote. The API returns `price: null` until a price is configured. The storefront name is `swearingbunny`; the Instagram contact remains configurable with `INSTAGRAM_USERNAME`.

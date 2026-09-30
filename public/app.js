@@ -272,6 +272,6 @@ function escapeHtml(str) {
 }
 
 // Keep an open storefront current after edits in the product manager.
-window.addEventListener("storage", event => { if (event.key === "swaeringbunny.catalogue-updated") loadProducts(); });
+window.addEventListener("storage", event => { if (event.key === "swearingbunny.catalogue-updated" || event.key === "swaeringbunny.catalogue-updated") loadProducts(); });
 document.addEventListener("visibilitychange", () => { if (!document.hidden) loadProducts(); });
 window.addEventListener("focus", () => { if (STORE_CONFIG) loadProducts(); });

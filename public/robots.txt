@@ -1,0 +1,20 @@
+# ==============================================================================
+# swearingbunny Robots Exclusion Standard (SEO)
+# https://swearingbunny-store.onrender.com
+# ==============================================================================
+
+User-agent: *
+Allow: /
+Allow: /assets/
+Allow: /style.css
+Allow: /theme.css
+Allow: /app.js
+Allow: /api/config
+Allow: /api/items
+
+# Restrict private administrative dashboard
+Disallow: /admin
+Disallow: /api/admin/
+
+# Search Engine Sitemap
+Sitemap: https://swearingbunny-store.onrender.com/sitemap.xml

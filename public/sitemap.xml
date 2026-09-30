@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url>
+    <loc>https://swearingbunny-store.onrender.com/</loc>
+    <lastmod>2026-09-30</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+    
+    <!-- Valorant Rank Boosting Service -->
+    <image:image>
+      <image:loc>https://swearingbunny-store.onrender.com/assets/valorant.jpg</image:loc>
+      <image:title>swearingbunny Valorant Rank Boosting Service</image:title>
+      <image:caption>Professional Valorant rank boosting service tailored to your target rank and server.</image:caption>
+    </image:image>
+
+    <!-- Genshin Impact Daily Help -->
+    <image:image>
+      <image:loc>https://swearingbunny-store.onrender.com/assets/genshin.webp</image:loc>
+      <image:title>swearingbunny Genshin Impact Daily Help</image:title>
+      <image:caption>Daily commissions, resin management, and resource farming assistance.</image:caption>
+    </image:image>
+
+    <!-- Honkai Star Rail Daily Help -->
+    <image:image>
+      <image:loc>https://swearingbunny-store.onrender.com/assets/hsr.webp</image:loc>
+      <image:title>swearingbunny Honkai Star Rail Daily Help</image:title>
+      <image:caption>Daily training, Trailblaze Power, and material farming assistance.</image:caption>
+    </image:image>
+
+    <!-- Zenless Zone Zero Daily Help -->
+    <image:image>
+      <image:loc>https://swearingbunny-store.onrender.com/assets/zzz.webp</image:loc>
+      <image:title>swearingbunny Zenless Zone Zero Daily Help</image:title>
+      <image:caption>Daily errands, Battery Charge management, and material collection.</image:caption>
+    </image:image>
+
+    <!-- GTA Single Player Mod Setup -->
+    <image:image>
+      <image:loc>https://swearingbunny-store.onrender.com/assets/gta.jpg</image:loc>
+      <image:title>swearingbunny GTA Single Player Mod Setup</image:title>
+      <image:caption>GTA V single-player mod installation, configuration, and setup guidance.</image:caption>
+    </image:image>
+
+    <!-- NTE Daily Help -->
+    <image:image>
+      <image:loc>https://swearingbunny-store.onrender.com/assets/nte.png</image:loc>
+      <image:title>swearingbunny Neverness to Everness (NTE) Daily Help</image:title>
+      <image:caption>Neverness to Everness daily routine progress, missions, and reward collection.</image:caption>
+    </image:image>
+
+    <!-- Cookie Run: Kingdom Daily Help -->
+    <image:image>
+      <image:loc>https://swearingbunny-store.onrender.com/assets/cookierun.jpg</image:loc>
+      <image:title>swearingbunny Cookie Run Kingdom Daily Help</image:title>
+      <image:caption>Kingdom production, daily missions, and resource collection help.</image:caption>
+    </image:image>
+
+    <!-- Any Game Daily Help -->
+    <image:image>
+      <image:loc>https://swearingbunny-store.onrender.com/assets/gamepad.jpg</image:loc>
+      <image:title>swearingbunny Any Game Daily Help</image:title>
+      <image:caption>Custom daily assistance for any game on PC, mobile, or console.</image:caption>
+    </image:image>
+
+    <!-- Local AI Girlfriend Setup -->
+    <image:image>
+      <image:loc>https://swearingbunny-store.onrender.com/assets/aigirlfriend.jpg</image:loc>
+      <image:title>swearingbunny Local Offline AI Girlfriend Setup</image:title>
+      <image:caption>Private, local AI companion setup running completely offline without Wi-Fi.</image:caption>
+    </image:image>
+
+    <!-- Android Device CarPlay for iPhone -->
+    <image:image>
+      <image:loc>https://swearingbunny-store.onrender.com/assets/carplay.jpg</image:loc>
+      <image:title>swearingbunny Android Device CarPlay for iPhone Setup</image:title>
+      <image:caption>CarPlay connectivity configuration and walkthrough for Android head units.</image:caption>
+    </image:image>
+  </url>
+</urlset>

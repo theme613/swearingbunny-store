@@ -1,7 +1,7 @@
 {
-  "name": "swaeringbunny-store",
+  "name": "swearingbunny-store",
   "version": "1.0.0",
-  "description": "swaeringbunny daily game help, gaming services, offline AI companion setup, and Android CarPlay storefront.",
+  "description": "swearingbunny daily game help, gaming services, rank boosting, offline AI companion setup, and Android CarPlay storefront.",
   "main": "server.mjs",
   "type": "module",
   "scripts": {
@@ -9,8 +9,12 @@
     "dev": "node --watch server.mjs"
   },
   "keywords": [
+    "swearingbunny",
+    "swearing-bunny",
+    "game-service",
     "gaming-services",
-    "swaeringbunny",
+    "game-boosting",
+    "valorant-boost",
     "daily-help",
     "genshin",
     "honkai-star-rail",
@@ -24,7 +28,7 @@
     "nodejs",
     "express"
   ],
-  "author": "swaeringbunny",
+  "author": "swearingbunny",
   "license": "ISC",
   "dependencies": {
     "cors": "^2.8.5",
