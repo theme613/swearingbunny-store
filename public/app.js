@@ -10,6 +10,7 @@ let latestProductRequest = 0;
 
 document.addEventListener("DOMContentLoaded", async () => {
   initFilterControls();
+  initQuoteCalculator();
   if (["localhost", "127.0.0.1", "[::1]"].includes(location.hostname)) document.getElementById("manageProductsLink").hidden = false;
   await loadStoreConfig();
   await loadProducts();
@@ -63,6 +64,15 @@ function applyBranding(config) {
   if (floatIg) floatIg.href = igUrl;
   const footerIg = document.getElementById("footerIgLink");
   if (footerIg) footerIg.href = igUrl;
+
+  // Discord Community Links
+  const discordUrl = config.contacts?.discordInviteUrl || "https://discord.gg/swearingbunny";
+  const navDiscord = document.getElementById("navDiscordBtn");
+  if (navDiscord) navDiscord.href = discordUrl;
+  const joinDiscord = document.getElementById("discordJoinBtn");
+  if (joinDiscord) joinDiscord.href = discordUrl;
+  const floatDiscord = document.getElementById("floatDiscordBtn");
+  if (floatDiscord) floatDiscord.href = discordUrl;
 }
 
 // 3. Fetch products & services dynamically from Express API
@@ -275,3 +285,60 @@ function escapeHtml(str) {
 window.addEventListener("storage", event => { if (event.key === "swearingbunny.catalogue-updated" || event.key === "swaeringbunny.catalogue-updated") loadProducts(); });
 document.addEventListener("visibilitychange", () => { if (!document.hidden) loadProducts(); });
 window.addEventListener("focus", () => { if (STORE_CONFIG) loadProducts(); });
+
+// ==============================================================================
+// 7. Interactive Instant Service & Quote Builder
+// ==============================================================================
+function initQuoteCalculator() {
+  let selectedGame = "Valorant";
+  let selectedType = "Daily Routine Farming";
+  let selectedDuration = "7 Days (Weekly)";
+
+  const gameButtons = document.querySelectorAll("#calcGameGroup .calc-btn-option");
+  const typeButtons = document.querySelectorAll("#calcTypeGroup .calc-btn-option");
+  const durationButtons = document.querySelectorAll("#calcDurationGroup .calc-btn-option");
+  const summaryTitle = document.getElementById("calcSummaryTitle");
+  const summaryDuration = document.getElementById("calcSummaryDuration");
+  const orderBtn = document.getElementById("calcWhatsappOrderBtn");
+
+  function updateCalculator() {
+    if (summaryTitle) summaryTitle.textContent = `${selectedGame} — ${selectedType}`;
+    if (summaryDuration) summaryDuration.textContent = `Plan: ${selectedDuration}`;
+
+    const waNum = STORE_CONFIG?.contacts?.whatsappNumber || "601154309279";
+    const text = `Hi swearingbunny! I am inquiring from your website about a quote for: ${selectedGame} - ${selectedType} (${selectedDuration}). Please let me know your availability and price!`;
+    if (orderBtn) {
+      orderBtn.href = `https://wa.me/${waNum}?text=${encodeURIComponent(text)}`;
+    }
+  }
+
+  gameButtons.forEach(btn => {
+    btn.addEventListener("click", () => {
+      gameButtons.forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
+      selectedGame = btn.getAttribute("data-game") || btn.textContent.trim();
+      updateCalculator();
+    });
+  });
+
+  typeButtons.forEach(btn => {
+    btn.addEventListener("click", () => {
+      typeButtons.forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
+      selectedType = btn.getAttribute("data-type") || btn.textContent.trim();
+      updateCalculator();
+    });
+  });
+
+  durationButtons.forEach(btn => {
+    btn.addEventListener("click", () => {
+      durationButtons.forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
+      selectedDuration = btn.getAttribute("data-duration") || btn.textContent.trim();
+      updateCalculator();
+    });
+  });
+
+  updateCalculator();
+}
+

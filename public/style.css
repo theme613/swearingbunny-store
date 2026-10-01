@@ -1205,3 +1205,433 @@ p {
     gap: 16px;
   }
 }
+
+/* ==========================================================================
+   INTERACTIVE GAMING UPGRADES: BRANDING, TICKER, CALCULATOR & DISCORD
+   ========================================================================== */
+
+/* 1. Cyber Bunny Brand Avatar */
+.brand-avatar {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 2px solid var(--lime);
+  box-shadow: 0 0 12px var(--lime-glow);
+  object-fit: cover;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  flex-shrink: 0;
+}
+
+.brand:hover .brand-avatar {
+  transform: rotate(6deg) scale(1.08);
+  box-shadow: 0 0 20px rgba(196, 244, 119, 0.6);
+}
+
+/* 2. Live 24/7 Status Badge */
+.live-status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(34, 197, 94, 0.12);
+  border: 1px solid rgba(34, 197, 94, 0.35);
+  padding: 6px 14px;
+  border-radius: var(--radius-full);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  color: #4ade80;
+  margin-bottom: 14px;
+}
+
+.pulse-indicator {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #22c55e;
+  box-shadow: 0 0 0 rgba(34, 197, 94, 0.7);
+  animation: pulseGreen 2s infinite;
+}
+
+@keyframes pulseGreen {
+  0% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7); }
+  70% { box-shadow: 0 0 0 8px rgba(34, 197, 94, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); }
+}
+
+/* 3. Live Orders & Activity Ticker */
+.ticker-wrap {
+  width: 100%;
+  background: var(--panel);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  overflow: hidden;
+  padding: 10px 0;
+  position: relative;
+  margin-top: 30px;
+}
+
+.ticker-inner {
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+  gap: 40px;
+  animation: tickerSlide 35s linear infinite;
+  width: max-content;
+}
+
+.ticker-inner:hover {
+  animation-play-state: paused;
+}
+
+.ticker-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--muted);
+}
+
+.ticker-item strong {
+  color: var(--text);
+}
+
+.ticker-item .ticker-tag {
+  background: var(--lime-subtle);
+  color: var(--lime);
+  padding: 2px 7px;
+  border-radius: var(--radius-xs);
+  font-size: 10px;
+  font-weight: 700;
+}
+
+@keyframes tickerSlide {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* 4. Interactive Instant Quote & Service Calculator */
+.calc-card {
+  background: var(--panel);
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius-lg);
+  padding: 36px;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45);
+  margin-top: 50px;
+  position: relative;
+  overflow: hidden;
+}
+
+.calc-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, var(--lime), #5865F2, transparent);
+}
+
+.calc-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  margin-top: 24px;
+}
+
+@media (max-width: 900px) {
+  .calc-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.calc-options-title {
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  font-weight: 700;
+  color: var(--muted);
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.calc-buttons-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.calc-btn-option {
+  padding: 8px 14px;
+  border-radius: var(--radius-sm);
+  background: var(--panel-light);
+  border: 1px solid var(--line);
+  color: var(--text);
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.calc-btn-option:hover {
+  border-color: var(--lime);
+  color: var(--lime);
+}
+
+.calc-btn-option.active {
+  background: var(--lime-subtle);
+  border-color: var(--lime);
+  color: var(--lime);
+  box-shadow: 0 0 10px var(--lime-glow);
+}
+
+.calc-summary-box {
+  background: var(--panel-elevated);
+  border: 1px solid var(--line-hover);
+  border-radius: var(--radius-md);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.calc-summary-header {
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 16px;
+  margin-bottom: 16px;
+}
+
+.calc-summary-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.calc-summary-subtitle {
+  font-size: 13px;
+  color: var(--lime);
+  margin-top: 4px;
+}
+
+.calc-perks-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.calc-perks-list li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.calc-perks-list li i {
+  color: var(--lime);
+}
+
+.calc-cta-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: var(--wa-green);
+  color: #ffffff;
+  padding: 14px 20px;
+  border-radius: var(--radius-md);
+  font-weight: 700;
+  font-size: 14px;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 16px rgba(37, 211, 102, 0.3);
+}
+
+.calc-cta-btn:hover {
+  background: #20ba59;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 22px rgba(37, 211, 102, 0.45);
+}
+
+/* 5. Discord Showcase Section */
+.discord-banner-card {
+  background: linear-gradient(135deg, rgba(88, 101, 242, 0.12) 0%, rgba(20, 22, 18, 0.95) 100%);
+  border: 1px solid rgba(88, 101, 242, 0.35);
+  border-radius: var(--radius-lg);
+  padding: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+  margin-top: 60px;
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.4);
+  position: relative;
+  overflow: hidden;
+}
+
+@media (max-width: 850px) {
+  .discord-banner-card {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 28px;
+  }
+}
+
+.discord-left {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+}
+
+.discord-icon-large {
+  width: 68px;
+  height: 68px;
+  border-radius: 18px;
+  background: #5865F2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 36px;
+  color: #fff;
+  box-shadow: 0 0 24px rgba(88, 101, 242, 0.5);
+  flex-shrink: 0;
+}
+
+.discord-info h3 {
+  font-size: 22px;
+  margin-bottom: 6px;
+}
+
+.discord-features-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.discord-pill {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  padding: 4px 10px;
+  border-radius: var(--radius-full);
+  font-size: 11px;
+  font-weight: 600;
+  color: #e2e8f0;
+}
+
+.btn-discord-join {
+  background: #5865F2;
+  color: #fff;
+  padding: 14px 28px;
+  border-radius: var(--radius-md);
+  font-weight: 700;
+  font-size: 14px;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 16px rgba(88, 101, 242, 0.4);
+}
+
+.btn-discord-join:hover {
+  background: #4752c4;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(88, 101, 242, 0.6);
+}
+
+.btn-discord-pill {
+  background: rgba(88, 101, 242, 0.15);
+  border: 1px solid rgba(88, 101, 242, 0.4);
+  color: #8ea1e1;
+  padding: 8px 14px;
+  border-radius: var(--radius-full);
+  font-size: 12px;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.2s ease;
+}
+
+.btn-discord-pill:hover {
+  background: #5865F2;
+  color: #fff;
+  border-color: #5865F2;
+}
+
+/* 6. Customer Testimonials / Verified Reviews */
+.reviews-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+  gap: 20px;
+  margin-top: 36px;
+}
+
+.review-card {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.review-card:hover {
+  border-color: var(--line-hover);
+  transform: translateY(-3px);
+}
+
+.review-stars {
+  color: #fbbf24;
+  font-size: 13px;
+  margin-bottom: 12px;
+  display: flex;
+  gap: 3px;
+}
+
+.review-quote {
+  font-size: 13px;
+  color: var(--text);
+  line-height: 1.6;
+  font-style: italic;
+  margin-bottom: 16px;
+}
+
+.review-author {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid var(--line);
+  padding-top: 12px;
+}
+
+.author-name {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--muted);
+}
+
+.author-game {
+  font-size: 10px;
+  font-weight: 700;
+  background: var(--lime-subtle);
+  color: var(--lime);
+  padding: 2px 8px;
+  border-radius: var(--radius-xs);
+}
+
+/* 7. Floating Discord Button */
+.float-discord {
+  background: #5865F2 !important;
+  color: #fff !important;
+}
+
+.float-discord:hover {
+  background: #4752c4 !important;
+  transform: scale(1.1) translateY(-2px);
+}
+

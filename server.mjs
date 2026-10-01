@@ -132,6 +132,7 @@ app.get('/api/config', (req, res) => {
       whatsappUrl: generateWhatsAppLink(),
       instagramUsername: process.env.INSTAGRAM_USERNAME || "swearingbunny",
       instagramUrl: generateInstagramLink(),
+      discordInviteUrl: process.env.DISCORD_INVITE_URL || "https://discord.gg/swearingbunny",
       currency: process.env.CURRENCY || "$",
     },
     trustBadges: TRUST_BADGES,
